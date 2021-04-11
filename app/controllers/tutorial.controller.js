@@ -1,6 +1,6 @@
 const db =require("../models");
 const Tutorial =db.tutorials;
-const Op=db.Sequealize.Op;
+const Op=db.Sequelize.Op;
 
 //create and save a tutorial
 exports.create=(req,res)=>{
@@ -35,7 +35,7 @@ exports.create=(req,res)=>{
 //Retrieve all Tutorials from Database.
 exports.findAll=(req,res)=>{
    const title=req.query.title;
-   var condition =title?{title:{[Op.ilike]: '%${title}%'}}:null;
+   var condition =title?{title:{[Op.ilike]: `%${title}%`}}:null;
    
    Tutorial.findAll({where:condition})
    .then(data=>{
@@ -64,7 +64,7 @@ exports.findOne=(req,res)=>{
 };
 
 //Update a tutorial by the id
-exports.update =(req,res){
+exports.update =(req,res)=>{
   const id=req.params.id;
   
   Tutorial.update(req.body,{

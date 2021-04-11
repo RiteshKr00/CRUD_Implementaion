@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize/types");
+const { Sequelize } = require("sequelize");
 
 //this model represent tutorials table in db
 module.exports=(sequelize,Sequelize)=>{

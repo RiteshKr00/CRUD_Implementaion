@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 //sequealize
 const db=require("./app/models");
+//db.sequelize.sync();
 db.sequelize.sync({force:true}).then(()=>{
     console.log("Drop and re-sync db.");
 });
@@ -31,5 +32,5 @@ require("./app/routes/tutorial.routes")(app);
 //set port,listen for requests
 const PORT=process.env.PORT||3000;
 app.listen(PORT,()=>{
-    console.log('Server is running on port ${PORT}.');    
+    console.log(`Server is running on port ${PORT}.`);    
 });
