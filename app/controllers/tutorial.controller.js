@@ -52,7 +52,7 @@ exports.findAll=(req,res)=>{
 exports.findOne=(req,res)=>{
     const id=req.params.id;
 
-    Tutorial.findbyPK(id)
+    Tutorial.findByPk(id)
     .then(data=>{
       res.send(data);
     })

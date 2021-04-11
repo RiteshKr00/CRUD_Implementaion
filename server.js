@@ -18,10 +18,11 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 //sequealize
 const db=require("./app/models");
-//db.sequelize.sync();
-db.sequelize.sync({force:true}).then(()=>{
-    console.log("Drop and re-sync db.");
-});
+db.sequelize.sync();
+//below line used to drop existing databse and create new everytime server starts
+// db.sequelize.sync({force:true}).then(()=>{
+//     console.log("Drop and re-sync db.");
+// });
 //simple route
 app.get("/",(req,res)=>{
     res.json({message:"Welcome to learn CrUD Api"});
